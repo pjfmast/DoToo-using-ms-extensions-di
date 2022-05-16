@@ -12,7 +12,7 @@ namespace DoToo
         public static IServiceCollection ConfigureServices(this IServiceCollection services)
         {
             //services.AddSingleton<IMyService, MyService>
-            services.AddSingleton<TodoItemRepository>();
+            services.AddSingleton<ITodoItemRepository, TodoItemRepository>();
             return services;
         }
 

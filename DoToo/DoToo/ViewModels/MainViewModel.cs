@@ -13,7 +13,7 @@ namespace DoToo.ViewModels
 {
     public class MainViewModel : ViewModel
     {
-        private readonly TodoItemRepository repository;
+        private readonly ITodoItemRepository repository;
 
         public ObservableCollection<TodoItemViewModel> Items { get; set; }
 
@@ -25,7 +25,7 @@ namespace DoToo.ViewModels
             ShowAll = !ShowAll;
             await LoadData();
         });
-        public MainViewModel(TodoItemRepository repository)
+        public MainViewModel(ITodoItemRepository repository)
         {
             repository.OnItemAdded += (sender, item) =>
                  Items.Add(CreateTodoItemViewModel(item));
